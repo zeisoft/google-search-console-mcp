@@ -1,27 +1,27 @@
-# Google Search Console MCP server — through HeyMetra
+<div align="center">
 
-> **Unofficial.** This is not Google Search Console's own MCP server and this repository is not affiliated with, endorsed by or supported by Google Search Console. It documents how [HeyMetra](https://heymetra.com/), a remote MCP server built by Zeisoft, reads Google Search Console.
+<img src="assets/cover.png" alt="Google Search Console through HeyMetra's MCP server" width="100%">
+
+# Google Search Console &times; HeyMetra
 
 **The queries you rank for, with their clicks, CTR and position.**
+
+Google Search Console knows what people did. It does not know what it cost, or what it earned. Connect it beside the accounts that do.
 
 [![MCP Registry](https://img.shields.io/badge/MCP_Registry-com.heymetra%2Fheymetra-1f6feb)](https://registry.modelcontextprotocol.io/v0/servers/com.heymetra%2Fheymetra/versions)
 [![Transport](https://img.shields.io/badge/transport-Streamable_HTTP-444)](https://modelcontextprotocol.io/)
 [![Auth](https://img.shields.io/badge/auth-OAuth_2.1-444)](https://heymetra.com/security/)
 [![Connector page](https://img.shields.io/badge/heymetra.com-google-search-console-1f6feb)](https://heymetra.com/connectors/google-search-console/)
 
+```
+https://mcp.heymetra.com/mcp
+```
+
+</div>
+
 ---
 
-## What Google Search Console is
-
-Google Search Console reports how your site performs in Google’s organic search results — the queries you rank for, your clicks and impressions, and indexing health. It’s the ground truth for SEO.
-
-## What HeyMetra reads from Google Search Console
-
-Connect the property once and your MCP client gets four Search Console tools: clicks, impressions, CTR and impression-weighted average position for a period, with a day-by-day series; the queries with the most impressions, each carrying its own clicks, CTR and position; which sitemaps you submitted and whether Google still reads them; and what Google says about one page you name — whether it is indexed, when it was last crawled, and what links to it. Search Console is read-only here: no tool submits a sitemap, removes a URL or changes a setting on your property.
-
-## What you can ask
-
-Once connected, in your own assistant, in plain language:
+## Ask it things like
 
 > Which queries brought the most impressions last month, and how many clicks did each get?
 
@@ -31,30 +31,7 @@ Once connected, in your own assistant, in plain language:
 
 > Did impressions fall this month compared with last month?
 
-## Permissions
-
-You switch these on per connection, and a permission you leave off is a tool your assistant never sees.
-
-| Permission | What it covers | Changes anything? |
-|---|---|---|
-| **Included with the connection** | What HeyMetra needs to set the connection up and nothing more. It cannot be switched off on its own — removing the connection is how you withdraw it. | No, read only |
-| **Search performance** | Read clicks, impressions, CTR and average position for the site, day by day — Google keeps about 16 months and deletes the rest. An older period is refused rather than answered as a stretch with no search traffic.; The last two days are still being processed, so a window that reaches them looks like a decline that is not there.. | No, read only |
-| **Search terms** | Read the search queries the site appears for, with each one's clicks, CTR and position — Google leaves rare searches out of query reports entirely, to protect the people who typed them. Measured on a real site: the same month showed 339 impressions by query and 1,244 by page — so these terms do not add up to the site's traffic, and the search performance report is where a total comes from.; Google keeps about 16 months and deletes the rest.. | No, read only |
-| **Sitemaps** | Read which sitemaps are submitted, when Google last downloaded each one, and how many errors and warnings it recorded — Error and warning COUNTS only. Search Console keeps what they actually say to its own interface, so a report can say a sitemap has three errors and cannot say what they are.; Submitted counts only. Google removed indexed counts from this report and from its API — the field still exists and is always zero — so nothing here says how many submitted pages are indexed.. | No, read only |
-| **Page inspection** | Ask Google about one page: whether it is indexed, when it was last crawled, which address it treats as canonical, and what links to it — One page per question, and 2,000 a day per site on a rolling 24-hour window. There is no bulk form — Search Console's page indexing report is in no API — so this explains a specific page rather than surveying a site.. | No, read only |
-
-<details>
-<summary>What each permission lets an assistant do, in full</summary>
-
-- Reads how your site did in Google Search over a period: clicks, impressions, click-through rate and average position.
-- Reads the searches your site appeared for most often, with the clicks and impressions each one brought.
-- Read which sitemaps you submitted, when Google last downloaded each, and how many errors and warnings it recorded against them.
-- Ask Google about one page you name: whether it is indexed, when it was last crawled, and what links to it. 2,000 pages a day.
-</details>
-
-## What it can change
-
-- Google Search Console is a read-only source — HeyMetra reads it to answer questions and never changes the account.
+No dashboard, no export, no query language. You ask in the assistant you already use and the answer comes back with the account it came from.
 
 ## Connect Google Search Console
 
@@ -187,6 +164,29 @@ _The key is serverUrl, not url — the one every other JSON client spells differ
 Full walkthrough: [heymetra.com/mcp/antigravity/](https://heymetra.com/mcp/antigravity/)
 </details>
 
+## What it may and may not touch
+
+Google Search Console is a read-only source — HeyMetra reads it to answer questions and never changes the account.
+
+Permissions are switched on per connection, and one you leave off is a tool your assistant never sees.
+
+| Permission | What it covers | Changes anything? |
+|---|---|---|
+| **Included with the connection** | What HeyMetra needs to set the connection up and nothing more. It cannot be switched off on its own — removing the connection is how you withdraw it. | No, read only |
+| **Search performance** | Read clicks, impressions, CTR and average position for the site, day by day — Google keeps about 16 months and deletes the rest. An older period is refused rather than answered as a stretch with no search traffic.; The last two days are still being processed, so a window that reaches them looks like a decline that is not there.. | No, read only |
+| **Search terms** | Read the search queries the site appears for, with each one's clicks, CTR and position — Google leaves rare searches out of query reports entirely, to protect the people who typed them. Measured on a real site: the same month showed 339 impressions by query and 1,244 by page — so these terms do not add up to the site's traffic, and the search performance report is where a total comes from.; Google keeps about 16 months and deletes the rest.. | No, read only |
+| **Sitemaps** | Read which sitemaps are submitted, when Google last downloaded each one, and how many errors and warnings it recorded — Error and warning COUNTS only. Search Console keeps what they actually say to its own interface, so a report can say a sitemap has three errors and cannot say what they are.; Submitted counts only. Google removed indexed counts from this report and from its API — the field still exists and is always zero — so nothing here says how many submitted pages are indexed.. | No, read only |
+| **Page inspection** | Ask Google about one page: whether it is indexed, when it was last crawled, which address it treats as canonical, and what links to it — One page per question, and 2,000 a day per site on a rolling 24-hour window. There is no bulk form — Search Console's page indexing report is in no API — so this explains a specific page rather than surveying a site.. | No, read only |
+
+<details>
+<summary>What each permission lets an assistant do, in full</summary>
+
+- Reads how your site did in Google Search over a period: clicks, impressions, click-through rate and average position.
+- Reads the searches your site appeared for most often, with the clicks and impressions each one brought.
+- Read which sitemaps you submitted, when Google last downloaded each, and how many errors and warnings it recorded against them.
+- Ask Google about one page you name: whether it is indexed, when it was last crawled, and what links to it. 2,000 pages a day.
+</details>
+
 ## When something goes wrong
 
 <details>
@@ -234,9 +234,19 @@ Full walkthrough: [heymetra.com/mcp/antigravity/](https://heymetra.com/mcp/antig
 
 </details>
 
-## Everything else HeyMetra reads
+## What HeyMetra reads from Google Search Console
 
-One connection answers across accounts — which is the point, because spend lives in one place and revenue in another:
+Connect the property once and your MCP client gets four Search Console tools: clicks, impressions, CTR and impression-weighted average position for a period, with a day-by-day series; the queries with the most impressions, each carrying its own clicks, CTR and position; which sitemaps you submitted and whether Google still reads them; and what Google says about one page you name — whether it is indexed, when it was last crawled, and what links to it. Search Console is read-only here: no tool submits a sitemap, removes a URL or changes a setting on your property.
+
+<details>
+<summary>About Google Search Console</summary>
+
+Google Search Console reports how your site performs in Google’s organic search results — the queries you rank for, your clicks and impressions, and indexing health. It’s the ground truth for SEO.
+</details>
+
+## One connection, not seven
+
+The reason to read Google Search Console through HeyMetra rather than through a server that only knows Google Search Console is everything else it can answer in the same breath:
 
 **Ads** — [Google Ads](https://heymetra.com/connectors/google-ads/) · [Meta](https://heymetra.com/connectors/meta-ads/)
 
@@ -250,17 +260,17 @@ One connection answers across accounts — which is the point, because spend liv
 
 **Channels** — [Slack](https://github.com/zeisoft/slack-mcp) · [Telegram](https://github.com/zeisoft/telegram-mcp)
 
-The full catalogue, with what each one can do today, is at [heymetra.com/connectors/](https://heymetra.com/connectors/).
+The full catalogue is at [heymetra.com/connectors/](https://heymetra.com/connectors/).
 
 ## Links
 
-- [Google Search Console connector page](https://heymetra.com/connectors/google-search-console/) — the source this page is generated from
+- [Google Search Console connector page](https://heymetra.com/connectors/google-search-console/)
 - [HeyMetra](https://heymetra.com/) — what the product is
-- [Setup per assistant](https://heymetra.com/mcp/) — eight clients, step by step
+- [Setup for every assistant](https://heymetra.com/mcp/)
 - [Security and limits](https://heymetra.com/security/)
-- [Pricing](https://heymetra.com/pricing/) — paid, no free plan and no trial
+- [Pricing](https://heymetra.com/pricing/)
 - [HeyMetra's own repository](https://github.com/zeisoft/heymetra-mcp)
 
 ---
 
-<sub>This README is generated from HeyMetra's live connector catalogue and refreshed daily; it is committed only when something in it actually changed. Corrections are welcome as issues. Built by <a href="https://zeisoft.com">Zeisoft</a>.</sub>
+<sub>Built by <a href="https://zeisoft.com">Zeisoft</a>, who make HeyMetra. Not affiliated with Google Search Console. This README is generated from HeyMetra's live connector catalogue and refreshed daily; corrections are welcome as issues.</sub>
