@@ -240,7 +240,7 @@ Permissions are switched on per connection, and one you leave off is a tool your
 
 ## What HeyMetra reads from Google Search Console
 
-Connect the property once and your MCP client gets four Search Console tools: clicks, impressions, CTR and impression-weighted average position for a period, with a day-by-day series; the queries with the most impressions, each carrying its own clicks, CTR and position; which sitemaps you submitted and whether Google still reads them; and what Google says about one page you name — whether it is indexed, when it was last crawled, and what links to it. Search Console is read-only here: no tool submits a sitemap, removes a URL or changes a setting on your property.
+Connect the property once and your MCP client gets one Search Console tool that composes the report you asked for: clicks, impressions, CTR and impression-weighted average position for a period, with a day-by-day series; the queries or pages with the most impressions, each carrying its own clicks, CTR and position; which sitemaps you submitted and whether Google still reads them; and what Google says about one page you name — whether it is indexed, when it was last crawled, and what links to it. Search Console withholds its rarest queries, so the same month adds up to less by query than by page; an answer says which report it read. The grant carries Google's read-only scope, so no tool submits a sitemap, removes a URL or changes a setting on your property.
 
 <details>
 <summary>About Google Search Console</summary>
@@ -254,13 +254,15 @@ The reason to read Google Search Console through HeyMetra rather than through a 
 
 **Ads** — [Google Ads](https://heymetra.com/connectors/google-ads/) · [Meta](https://heymetra.com/connectors/meta-ads/)
 
-**Analytics** — [Google Analytics 4](https://heymetra.com/connectors/google-analytics-4/) · **Google Search Console**
+**Analytics** — [Google Analytics 4](https://heymetra.com/connectors/google-analytics-4/) · **Google Search Console** · [PostHog](https://github.com/zeisoft/posthog-mcp)
 
 **Ecommerce** — [Shopify](https://heymetra.com/connectors/shopify/) · [Trendyol](https://github.com/zeisoft/trendyol-mcp) · [WooCommerce](https://github.com/zeisoft/woocommerce-mcp)
 
 **Revenue & CRM** — [Stripe](https://heymetra.com/connectors/stripe/) · [HubSpot](https://heymetra.com/connectors/hubspot/) · [Zoho CRM](https://github.com/zeisoft/zoho-crm-mcp) · [Zoho SalesIQ](https://github.com/zeisoft/zoho-salesiq-mcp) · [Zoho Marketing Automation](https://github.com/zeisoft/zoho-marketing-automation-mcp)
 
 **Mobile** — [AppsFlyer](https://github.com/zeisoft/appsflyer-mcp) · [RevenueCat](https://heymetra.com/connectors/revenuecat/) · [Adapty](https://github.com/zeisoft/adapty-mcp) · [App Store Connect](https://github.com/zeisoft/app-store-connect-mcp)
+
+**Work** — [Google Calendar](https://heymetra.com/connectors/google-calendar/) · [Google Meet](https://heymetra.com/connectors/google-meet/) · [Jira](https://github.com/zeisoft/jira-mcp)
 
 **Channels** — [Slack](https://github.com/zeisoft/slack-mcp) · [Telegram](https://github.com/zeisoft/telegram-mcp)
 
