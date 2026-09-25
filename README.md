@@ -37,7 +37,7 @@ No dashboard, no export, no query language. You ask in the assistant you already
 
 **1. Check which Google account owns the property**
 
-Open search.google.com/search-console and look at the property list. Connect with the account you see it in — not a personal account that happens to be signed in, and not the agency account unless the property is listed there too.
+Open search.google.com/search-console and look at the property list. Connect with the account you see it in. Not a personal account that happens to be signed in, and not the agency account unless the property is listed there too.
 
 > Search Console permissions are per property, not per domain. Being an owner of example.com says nothing about shop.example.com.
 
@@ -47,7 +47,7 @@ On the Connections screen. There is nothing to copy and no key to generate: this
 
 **3. Sign in on Google's screen and grant read access**
 
-Your password stays with Google; HeyMetra receives a token you can revoke at any time from your Google account. The permission asked for is read-only — nothing here submits a sitemap, removes a URL or changes a setting.
+Your password stays with Google, and you can revoke HeyMetra's access at any time from your Google account. The permission asked for is read-only, so nothing here submits a sitemap, removes a URL or changes a setting.
 
 > If Google offers an account picker, the account you pick is the one whose properties HeyMetra can see. Picking the wrong one shows an empty list on the next step rather than an error.
 
@@ -57,7 +57,7 @@ HeyMetra lists what that Google account can read. A domain property (sc-domain:e
 
 **5. Add HeyMetra to the assistant you use**
 
-Claude, ChatGPT, Cursor or Codex — HeyMetra gives you the address and the key to paste. The Search Console tools appear there and answer from the live property.
+Claude, ChatGPT, Cursor or Codex. HeyMetra gives you the address and the key to paste. Search Console then answers there, from the live property.
 
 ## Then add HeyMetra to your assistant
 
@@ -92,7 +92,7 @@ Full walkthrough: [heymetra.com/mcp/claude/](https://heymetra.com/mcp/claude/)
 
 Paste the address above into Settings → Security and login → Developer mode, then chatgpt.com/plugins.
 
-_The endpoint has to include its /mcp path here._
+_The address has to end in /mcp here._
 
 Full walkthrough: [heymetra.com/mcp/chatgpt/](https://heymetra.com/mcp/chatgpt/)
 </details>
@@ -153,7 +153,7 @@ Full walkthrough: [heymetra.com/mcp/codex/](https://heymetra.com/mcp/codex/)
 }
 ```
 
-_Leave the static OAuth fields empty — they exist for servers that cannot register themselves._
+_Leave the static OAuth fields empty; HeyMetra does not need them._
 
 Full walkthrough: [heymetra.com/mcp/cursor/](https://heymetra.com/mcp/cursor/)
 </details>
@@ -169,26 +169,26 @@ Full walkthrough: [heymetra.com/mcp/cursor/](https://heymetra.com/mcp/cursor/)
 }
 ```
 
-_The key is serverUrl, not url — the one every other JSON client spells differently._
+_The key is serverUrl, not url, unlike every other JSON client._
 
 Full walkthrough: [heymetra.com/mcp/antigravity/](https://heymetra.com/mcp/antigravity/)
 </details>
 
 ## What it may and may not touch
 
-Google Search Console is a read-only source — HeyMetra reads it to answer questions and never changes the account.
+Google Search Console is a read-only source. HeyMetra reads it to answer your questions and never changes anything in it.
 
 Permissions are switched on per connection, and one you leave off is a tool your assistant never sees.
 
 | Permission | What it covers | Changes anything? |
 |---|---|---|
-| **Included with the connection** | What HeyMetra needs to set the connection up and nothing more. It cannot be switched off on its own — removing the connection is how you withdraw it. | No, read only |
-| **Direct API access** | Let your assistant use this account's own API for anything HeyMetra's other operations do not cover. It reads directly, and what comes back is the provider's own answer rather than a figure HeyMetra has checked. It can also propose changes — those are never applied until you approve them, and HeyMetra cannot undo one afterwards — Google keeps about 16 months and deletes the rest. An older period is refused rather than answered as a stretch with no search traffic.; The last two days are still being processed, so a window that reaches them looks like a decline that is not there.; Google leaves rare searches out of query reports entirely, to protect the people who typed them. Measured on a real site: the same month showed 339 impressions by query and 1,244 by page — so these terms do not add up to the site's traffic, and the search performance report is where a total comes from.; Google keeps about 16 months and deletes the rest.; Error and warning COUNTS only. Search Console keeps what they actually say to its own interface, so a report can say a sitemap has three errors and cannot say what they are.; Submitted counts only. Google removed indexed counts from this report and from its API — the field still exists and is always zero — so nothing here says how many submitted pages are indexed.; One page per question, and 2,000 a day per site on a rolling 24-hour window. There is no bulk form — Search Console's page indexing report is in no API — so this explains a specific page rather than surveying a site.. | No, read only |
+| **Included with the connection** | What HeyMetra needs to set the connection up, and nothing more. It cannot be switched off on its own; to withdraw it, remove the connection. | No, read only |
+| **Full account access** | Lets your assistant read anything in this account to answer your questions. The figures are the provider's own, not ones HeyMetra has checked. It cannot change anything in this account — Google keeps about 16 months and deletes the rest. An older period is refused rather than answered as a stretch with no search traffic.; The last two days are still being processed, so a window that reaches them looks like a decline that is not there.; Google leaves rare searches out of query reports entirely, to protect the people who typed them. Measured on a real site, the same month showed 339 impressions by query and 1,244 by page. So these terms do not add up to the site's traffic, and the search performance report is where a total comes from.; Google keeps about 16 months and deletes the rest.; Error and warning COUNTS only. Search Console keeps what they actually say to its own interface, so a report can say a sitemap has three errors and cannot say what they are.; Submitted counts only. Google no longer reports how many submitted pages are indexed, so nothing here can say it.; One page per question, and 2,000 a day per site on a rolling 24-hour window. Google offers no way to check a whole site at once, so this explains a specific page rather than surveying a site.. | No, read only |
 
 <details>
 <summary>What each permission lets an assistant do, in full</summary>
 
-- Ask this account's own API a question HeyMetra's other operations do not cover. Reads only, and the answer is the provider's own rather than a figure HeyMetra has checked.
+- Ask anything about this account and get the answer from its live data. Reads only, and the figures are the provider's own rather than ones HeyMetra has checked.
 </details>
 
 ## When something goes wrong
@@ -205,7 +205,7 @@ Permissions are switched on per connection, and one you leave off is a tool your
 <details>
 <summary>The site is in the list twice, with different numbers in each.</summary>
 
-**Why:** A domain property and a URL-prefix property for the same site are two different properties and count different traffic — the domain one includes subdomains and the other protocol.
+**Why:** A domain property and a URL-prefix property for the same site are two different properties and count different traffic. The domain one includes subdomains and the other protocol.
 
 **Fix:** Connect the one whose figures match what you report on. They are not two views of one number and must never be added together.
 
@@ -240,12 +240,12 @@ Permissions are switched on per connection, and one you leave off is a tool your
 
 ## What HeyMetra reads from Google Search Console
 
-Connect the property once and your MCP client gets one Search Console tool that composes the report you asked for: clicks, impressions, CTR and impression-weighted average position for a period, with a day-by-day series; the queries or pages with the most impressions, each carrying its own clicks, CTR and position; which sitemaps you submitted and whether Google still reads them; and what Google says about one page you name — whether it is indexed, when it was last crawled, and what links to it. Search Console withholds its rarest queries, so the same month adds up to less by query than by page; an answer says which report it read. The grant carries Google's read-only scope, so no tool submits a sitemap, removes a URL or changes a setting on your property.
+Connect the property once and ask about it from your assistant: clicks, impressions, CTR and average position for any period, day by day; the queries and pages with the most impressions, each with its own clicks, CTR and position; which sitemaps you submitted and whether Google still reads them; and what Google says about one page you name, such as whether it is indexed, when it was last crawled and what links to it. Search Console holds back its rarest queries, so the same month adds up to less by query than by page, and every answer says which report it used. HeyMetra only reads: it never submits a sitemap, removes a URL or changes a setting on your property.
 
 <details>
 <summary>About Google Search Console</summary>
 
-Google Search Console reports how your site performs in Google’s organic search results — the queries you rank for, your clicks and impressions, and indexing health. It’s the ground truth for SEO.
+Google Search Console reports how your site performs in Google’s organic search results: the queries you rank for, your clicks and impressions, and indexing health. It’s the ground truth for SEO.
 </details>
 
 ## One connection, not seven
