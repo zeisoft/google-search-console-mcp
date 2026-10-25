@@ -57,7 +57,7 @@ HeyMetra lists what that Google account can read. A domain property (sc-domain:e
 
 **5. Add HeyMetra to the assistant you use**
 
-Claude, ChatGPT, Cursor or Codex. HeyMetra gives you the address and the key to paste. Search Console then answers there, from the live property.
+Claude, ChatGPT, Cursor or Codex. You paste one address and sign in once. Search Console then answers there, from the live property.
 
 ## Then add HeyMetra to your assistant
 
