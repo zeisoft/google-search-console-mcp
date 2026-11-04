@@ -252,7 +252,7 @@ Google Search Console reports how your site performs in Google’s organic searc
 
 The reason to read Google Search Console through HeyMetra rather than through a server that only knows Google Search Console is everything else it can answer in the same breath:
 
-**Ads** — [Google Ads](https://heymetra.com/connectors/google-ads/) · [Meta](https://heymetra.com/connectors/meta-ads/)
+**Ads** — [Google Ads](https://github.com/zeisoft/google-ads-mcp) · [Meta](https://heymetra.com/connectors/meta-ads/)
 
 **Analytics** — [Google Analytics 4](https://github.com/zeisoft/google-analytics-4-mcp) · **Google Search Console** · [PostHog](https://github.com/zeisoft/posthog-mcp)
 
